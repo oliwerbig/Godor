@@ -1,0 +1,40 @@
+2021.09.29
+Nincs szükség struct-ra, vagy class-ra. Soronként egyetlen egész számom van
+Ehhez elegendő egy int tömb, vagy int List
+Ne felejtsétek el bemásolni az állományt a project mappa megfelelő almappájába!
+
+C:\Users\psarmasagi\source\repos\godor\godor\bin\Debug\netcoreapp3.1
+
+Kód:
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace godor
+{
+    class Program
+    {
+        static List<int> adatok = new List<int>();
+        //azért List adatszerkezetet használok, mert így
+        //-- nem kell foglalkoznom a mérettel
+        //-- és van néhány jó tulajdonsága a List adatszerkezetnek (comming soon...)
+
+        static void beolvas()
+        {
+            StreamReader sr = new StreamReader("melyseg.txt"); //sr volt korábban "olvas"
+            string egysor;
+            while ((egysor = sr.ReadLine()) != null)
+            {
+                int egyadat = Convert.ToInt32(egysor);
+                adatok.Add(egyadat);
+            }
+            sr.Close();
+        }
+
+        static void Main(string[] args)
+        {
+            beolvas();
+            Console.WriteLine("A beolvasott rekordok száma: {0}",adatok.Count);
+        }
+    }
+}
