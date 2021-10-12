@@ -8,7 +8,7 @@ namespace godor
 {
     class Pit
     {
-        public SortedDictionary<int, int> Pits { get; set; } = new();
+        public SortedDictionary<int, int> Depths { get; set; } = new();
 
         public Pit()
         {
